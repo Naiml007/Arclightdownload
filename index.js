@@ -37,7 +37,9 @@ app.get('/releases', async (req, res) => {
 
         res.json(formattedReleases);
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching GitHub releases:', error);
+        console.error('Status Code:', error.response?.status); // Log status code
+        console.error('Error Message:', error.response?.data?.message); // Log API error message
         res.status(500).send('An error occurred while fetching data from GitHub API.');
     }
 });

@@ -1,11 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 const GITHUB_API_URL = 'https://api.github.com/repos/IzzelAliz/Arclight/releases';
 // **Important:**  If you are making many requests, you will likely need a GitHub Personal Access Token

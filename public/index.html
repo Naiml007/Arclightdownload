@@ -14,7 +14,7 @@
 
     <script>
       async function fetchData() {
-    const response = await fetch('http://localhost:3000/releases'); 
+    const response = await fetch('/releases'); //http://localhost:3000/releases
     const data = await response.json();
 
     const cart = document.getElementById('cart');
